@@ -91,9 +91,9 @@ def student_data(student_id,**kwargs):
     if "student_class" in kwargs:
         print("Student Class=",kwargs["student_class"])
 
-student_data(student_id="21102038")
-student_data(student_id="21102038",student_name="Raghav Goel")
-student_data(student_id="21102038",student_name="Raghva Goel",student_class="1st Year")
+student_data(student_id="21102107")
+student_data(student_id="21102107",student_name="Vansh Singh")
+student_data(student_id="21102107",student_name="Vansh Singh",student_class="1st Year")
 print()
 
 
