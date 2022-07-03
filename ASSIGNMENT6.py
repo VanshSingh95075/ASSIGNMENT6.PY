@@ -1,72 +1,76 @@
-#QUESTION1
+#Question 1
+#Perfect Number
 
-def perfect_number(num_1):           #defining a function for perfect number
-    if num_1>0:                      #condition for positive number
-        i=1
-        sum=0
-        while i<=num_1:
-            if num_1%i==0:           #loop for sum of all divisors
-                sum=sum+i
-            i=i+1
-    if sum/2==num_1:                            #condition for perfect number
-        print( num_1,"is a perfect number")        
+def perfect_number(n):
+    s=0
+    for i in range(1,n):
+        if(n%i==0):
+            s+=i #Storing the sum of divisors excluding the number itself
+    if(s==n):
+        return True
     else:
-        print(num_1,"is not a perfect number")
-a=int(input("Enter your number"))    #input your number
-perfect_number(a)                    #calling a function
+        return False
 
-#QUESTION2
-
-def palindrome(str_1):               #defining function for palindrome
-    s_1=""
-    for i in str_1:                  #Using for loop to access elements of string
-        s_1=i+s_1 
-
-    print(s_1)                       #printing reversed string
-
-strng=input("Enter your string")     #input of string
-
-palindrome(strng)                    #calling function
-
-if strng==palindrome(strng):
-    print(palindrome(strng),"is a palindrome")    #printing palindrome
+N=int(input("Enter a number: ")) #taking user's input
+if(perfect_number(N)==True):
+    print(N," is a perfect number")
 else:
-    print("not palindrome")                       #printing not palindrome
+    print(N," is not a perfect number")
+print()
 
-#QUESTION3
-from math import factorial                        #importing factorial function from maths module
+#Question 2
+#Palindrome String
 
-def pascal_traingle(n):                           #defining function for printing pascal traingle
-    i=0
-    while i<n:                                    #intializing while loop
-        k=n-i
-        j=0
-        while j<k:
-            print(end=" ")                        #loop for spacing
-            j=j+1
-        j=0
-        while j<=i:
-            k=factorial(i)//(factorial(j)*(factorial(i-j)))    #writing expression for elements of pascal traingle
-            print(k,end=" ")
-            j=j+1
-        print()                                   #print for breaking line
-        i=i+1
+def palindrome(s):
+    s1=""
+    s1 = s[::-1]
+    return s1
+S=input("Enter a String: ")
+if(palindrome(S)==S):
+    print(S,"is a palindrome")
+else:
+    print(S,"is not a palindrome") 
+print()
 
-n= int(input("enter number of rows"))             #input number of rows
-pascal_traingle(n)                                #calling pascal traingle function
+#Question 3
+#Pascal's Triangle
 
-#QUESTION4
-def pangram(str_1):
-    str_2=str_1.lower()
-    for i in str_2:
-        for j in range(97,122):
-            if i==chr(j):
-                print(str_1,"is a pangram")
-            
-               
+def factorial(m):
+    s=1
+    for i in range(1,m+1):
+        s*=i
+    return s
 
-strng=input("Enter your string for checking pangram")
-pangram(strng)
+def pascal(n):
+    for i in range(n):
+        for j in range(n-i+1):
+            print(end=" ")
+        for j in range(i+1):
+            #nCr=n!/(r!(n-r)!)
+            print(factorial(i)//(factorial(j)*factorial(i-j)),end=" ")
+        
+        print() #Printing new line
+N=int(input("Enter a number: "))
+pascal(N)
+print()
+
+#Question 4
+# Check if the string is pangram
+
+def ispangram(str):
+	alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+	for char in alphabet:
+		if char not in str.lower():
+			return False
+
+	return True
+	
+s=input("Enter a String: ")
+if(ispangram(s) == True):
+	print(f"Yes '{s}' is a panagram")
+else:
+	print(f"No '{s}' is not a panagram")
+print()
 
 #Question 5
 #Hyphen Seperated Sentence
